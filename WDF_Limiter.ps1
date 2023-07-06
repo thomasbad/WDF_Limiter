@@ -1,21 +1,10 @@
 ﻿#Create WinForm
-#Hide PowerShell Console
-Add-Type -Name Window -Namespace Console -MemberDefinition '
-[DllImport("Kernel32.dll")]
-public static extern IntPtr GetConsoleWindow();
-[DllImport("user32.dll")]
-public static extern bool ShowWindow(IntPtr hWnd, Int32 nCmdShow);
-'
-$consolePtr = [Console.Window]::GetConsoleWindow()
-[Console.Window]::ShowWindow($consolePtr, 0)
-
 
 #-----[functions area]------
 
 #Enable Windows Denfender lower
 function ENWDL {
             Set-MpPreference -ScanAvgCPULoadFactor 25
-            Set-MpPreference -DisableCpuThrottleOnIdleScans 0
             if($?)
             {
             $SuccssMsg                    = [System.Windows.MessageBox]::Show($SuccessMsgbody,$SuccessMsgTitle,$ButtonOK,$SuccessMsgIcon)
@@ -30,7 +19,6 @@ function ENWDL {
 #Enable all
 function DISWDL { 
             Set-MpPreference -ScanAvgCPULoadFactor 50
-            Set-MpPreference -DisableCpuThrottleOnIdleScans 1
             if($?)
             {
             $SuccssMsg                    = [System.Windows.MessageBox]::Show($SuccessMsgbody,$SuccessMsgTitle,$ButtonOK,$SuccessMsgIcon)
@@ -141,7 +129,7 @@ $SuccessMsgIcon               = [System.Windows.MessageBoxImage]::Information
 
 #Config Fail
 $FailMsgTitle                 = "Fail"
-$FailMsgbody                  = "Configuration Failed !`nPlease check if you have Admin Right or use Run as Admin to run this program.`n`n設置失敗，請檢查此程式是否以管理員身份運行"
+$FailMsgbody                  = "Configuration Failed !`nPlease check if you have Admin Right or use Run as Admin to run this program.`nOr ensure your computer really have Windows Defender activated`n`n設置失敗，請檢查此程式是否以管理員身份運行`n或確定你是否真的有激活Windows Defender"
 $FailMsgIcon                  = [System.Windows.MessageBoxImage]::Error
 
 #How to Use
