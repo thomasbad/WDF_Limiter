@@ -1,6 +1,9 @@
 # WDF_Limiter
 Fix for Windows Defender jamming CPU usage for old computer
 
+![image](https://github.com/thomasbad/WDF_Limiter/assets/20796385/61253e4b-430f-4653-ab10-9444ba3e1ced)
+
+
 ## What is this?
 After the new update (people said after 21H1/22H2, am not sure), Windows Denfender become more resource consumable, causing slowness and CPU usage always up to 100% problem on some computer with old CPU with Windows 10/11 installed.
 
